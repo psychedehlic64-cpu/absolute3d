@@ -341,36 +341,51 @@ footer{
 .menu-toggle span{
   width:26px;
   height:3px;
-  background:#fff;
+  background:#00e0ff;
   border-radius:3px;
   transition:.4s;
 }
 
 /* MOBILE */
+/* MOBILE MENU FULLSCREEN */
 @media(max-width:900px){
+
   .menu-toggle{
     display:flex;
+    margin-left:20px;
+    z-index:2001;
   }
 
   .nav{
-    position:absolute;
-    top:100%;
-    right:20px;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100vh;
     background:#0b0b0d;
+    display:flex;
     flex-direction:column;
-    gap:20px;
-    padding:25px;
-    border-radius:16px;
-    box-shadow:0 25px 60px rgba(0,0,0,.8);
-    display:none;
-    width:260px;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .4s ease;
+    z-index:2000;
   }
 
   .nav.active{
-    display:flex;
+    opacity:1;
+    pointer-events:auto;
   }
 
   .nav a{
+    font-size:1.4rem;
+    text-align:center;
+  }
+
+  .market-link{
     justify-content:center;
   }
 }
+
