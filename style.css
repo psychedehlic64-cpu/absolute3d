@@ -436,3 +436,61 @@ footer{
   }
 }
 
+/* LOGO – EFEITO PREMIUM */
+.logo{
+  animation:logoFloat 6s ease-in-out infinite, logoPulse 4s infinite;
+}
+
+@keyframes logoPulse{
+  0%{
+    filter:drop-shadow(0 0 6px rgba(0,224,255,.3));
+  }
+  50%{
+    filter:drop-shadow(0 0 16px rgba(0,224,255,.6));
+  }
+  100%{
+    filter:drop-shadow(0 0 6px rgba(0,224,255,.3));
+  }
+}
+
+/* LOGO – BRILHO DESLIZANTE */
+.logo{
+  position:relative;
+  overflow:hidden;
+}
+
+/* Camada do brilho */
+.logo::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-150%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.6),
+    transparent
+  );
+  transform:skewX(-25deg);
+  animation:logoShine 5s infinite;
+}
+
+/* Animação do brilho */
+@keyframes logoShine{
+  0%{
+    left:-150%;
+  }
+  60%{
+    left:-150%;
+  }
+  100%{
+    left:150%;
+  }
+}
+
+/* Brilho mais intenso no hover */
+.logo:hover::after{
+  animation-duration:2s;
+}
