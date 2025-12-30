@@ -27,7 +27,7 @@ a{text-decoration:none;color:inherit}
   justify-content:space-between;
 }
 
-.logo{width:160px}
+.logo{width:250px}
 
 .nav{display:flex;gap:50px}
 .nav a:hover{color:#00ff62}
@@ -298,8 +298,8 @@ footer{
 
 /* Ícones */
 .market-link img{
-  width:100px;
-  height:75px;
+  width:70px;
+  height:70px;
 }
 
 /* Badge Loja Oficial */
