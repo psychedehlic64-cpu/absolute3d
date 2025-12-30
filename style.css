@@ -438,7 +438,7 @@ footer{
 
 /* LOGO – EFEITO PREMIUM */
 .logo{
-  animation:logoFloat 6s ease-in-out infinite, logoPulse 4s infinite;
+  animation:logoFloat 6s ease-in-out infinite, logoPulse 7s infinite;
 }
 
 @keyframes logoPulse{
@@ -474,7 +474,7 @@ footer{
     transparent
   );
   transform:skewX(-25deg);
-  animation:logoShine 5s infinite;
+  animation:logoShine 7s infinite;
 }
 
 /* Animação do brilho */
