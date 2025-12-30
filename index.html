@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Absolute 3D | Impressão 3D de Alta Precisão</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Absolute 3D – Impressão 3D profissional, prototipagem, peças técnicas e acabamento premium.">
+  <meta name="keywords" content="impressão 3D, prototipagem 3D, peças 3D, impressão 3D profissional">
+  <meta name="author" content="Absolute 3D">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top-header">
+  <div class="container">
+    <img src="logo-absolute3d.png" alt="Absolute 3D" class="logo">
+
+    <nav class="nav marketplace-nav">
+      <a href="https://shopee.com.br" target="_blank" rel="noopener" class="market-link shopee">
+        <img src="icon-shopee.png" alt="Shopee">
+        
+        <span class="badge">Loja Oficial</span>
+      </a>
+
+      <a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener" class="market-link ml">
+        <img src="icon-mercadolivre.png" alt="Mercado Livre">
+        
+        <span class="badge">Loja Oficial</span>
+      </a>
+
+      <a href="#contato" class="btn-nav">Orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-container-bg">
+    <h1>Impressão 3D de Alta Precisão</h1>
+    <p>
+      Transformamos ideias em peças perfeitas com tecnologia,
+      acabamento impecável e foco absoluto na perfeição.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#contato" class="btn-hero">Solicitar Orçamento</a>
+      <a href="#servicos" class="btn-hero-outline">Ver Serviços</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="section">
+  <h2>Nossos Serviços</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Prototipagem</h3>
+      <p>Criação de protótipos funcionais com alta fidelidade dimensional.</p>
+    </div>
+
+    <div class="card">
+      <h3>Peças Técnicas</h3>
+      <p>Produção de peças sob medida para aplicações técnicas e industriais.</p>
+    </div>
+
+    <div class="card">
+      <h3>Design 3D</h3>
+      <p>Modelagem personalizada conforme sua necessidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio" class="section">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2>Portfólio</h2>
+  <p class="center">Alguns trabalhos realizados pela Absolute 3D</p>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="portfolio1.jpg" onclick="openLightbox(this.src)" alt="Peça 3D personalizada">
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio2.jpg" onclick="openLightbox(this.src)" alt="Prototipagem 3D">
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio3.jpg" onclick="openLightbox(this.src)" alt="Peça técnica em 3D">
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio4.png" onclick="openLightbox(this.src)" alt="Acabamento premium 3D">
+    </div>
+  </div>
+</section>
+<br>
+<br>
+<br>
+<!-- INSTAGRAM -->
+<section class="section dark">
+  <br>
+  <br>
+  <h2>Siga no Instagram</h2>
+  <p class="center">@absolute3d</p>
+
+  <div class="instagram-grid">
+    <iframe
+      src="https://snapwidget.com/embed/1115338"
+      class="instagram-frame"
+      frameborder="0"
+      scrolling="no">
+    </iframe>
+  </div>
+
+  <div class="center" style="margin-top:30px">
+    <a href="https://instagram.com/absolute3d" target="_blank" class="btn-hero">
+      Ver no Instagram
+    </a>
+    <br>
+    <br>
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5500000000000" class="whatsapp-float" target="_blank">💬</a>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<footer>
+  © 2025 Absolute 3D • Precisão. Perfeição. Absoluto.
+</footer>
+
+<!-- JS LIGHTBOX -->
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox').style.display = 'flex';
+  document.getElementById('lightbox-img').src = src;
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
