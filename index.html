@@ -115,7 +115,7 @@
 </section>
 
 <!-- PORTFÓLIO -->
-<section id="portfolio" class="section">
+<!--<section id="portfolio" class="section">
   <br>
   <br>
   <h2>Portfólio</h2>
@@ -135,7 +135,47 @@
       <img src="portfolio4.png" onclick="openLightbox(this.src)" alt="Acabamento premium 3D">
     </div>
   </div>
+</section>-->
+<section id="portfolio" class="section dark">
+  <h2>Portfólio</h2>
+  <p class="center">Alguns trabalhos realizados pela Absolute 3D</p>
+
+  <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <img src="portfolio1.jpg" alt="Impressão 3D personalizada">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio2.jpg" alt="Peça técnica em 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio3.jpg" alt="Prototipagem 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio4.png  " alt="Acabamento premium 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio5.jpg" alt="Acabamento premium 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio6.jpg" alt="Acabamento premium 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio7.jpg" alt="Acabamento premium 3D">
+      </div>
+      <div class="carousel-item">
+        <img src="portfolio8.jpg" alt="Acabamento premium 3D">
+      </div>
+
+      <!-- 👉 É só duplicar esse bloco para adicionar mais imagens -->
+    </div>
+
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
 </section>
+
 <br>
 <br>
 <br>
@@ -170,8 +210,9 @@
 </a>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img src="" alt="Imagem ampliada">
 </div>
 
 <footer>
@@ -195,7 +236,7 @@ function closeLightbox(){
     nav.classList.toggle('active');
     toggle.classList.toggle('active');
   });
-  
+
    const modal = document.getElementById('modal-orcamento');
   const closeModal = document.getElementById('close-modal');
 
@@ -222,8 +263,120 @@ function closeLightbox(){
       modal.classList.remove('active');
     }
   });
+document.addEventListener('DOMContentLoaded', () => {
+
+  const track = document.querySelector('.carousel-track');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const closeLightbox = lightbox.querySelector('.lightbox-close');
+
+  let items = Array.from(track.children);
+  let index = 1;
+  let startX = 0;
+  let isDragging = false;
+
+  /* ===== LOOP INFINITO ===== */
+  const firstClone = items[0].cloneNode(true);
+  const lastClone = items[items.length - 1].cloneNode(true);
+
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, items[0]);
+
+  items = Array.from(track.children);
+
+  function itemWidth(){
+    return items[0].offsetWidth + 30;
+  }
+
+  track.style.transform = `translateX(-${itemWidth() * index}px)`;
+
+  function move(){
+    track.style.transition = '.4s ease';
+    track.style.transform = `translateX(-${itemWidth() * index}px)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index++;
+    move();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index--;
+    move();
+  });
+
+  track.addEventListener('transitionend', () => {
+
+  if(index >= items.length - 1){
+    track.style.transition = 'none';
+    index = 1;
+    track.style.transform = `translateX(-${itemWidth() * index}px)`;
+  }
+
+  if(index <= 0){
+    track.style.transition = 'none';
+    index = items.length - 2;
+    track.style.transform = `translateX(-${itemWidth() * index}px)`;
+  }
+  requestAnimationFrame(() => {
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${itemWidth() * index}px)`;
+});
+
+});
+
+  /* ===== SWIPE MOBILE ===== */
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchend', e => {
+    if(!isDragging) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if(diff > 50) nextBtn.click();
+    if(diff < -50) prevBtn.click();
+
+    isDragging = false;
+  });
+
+  /* ===== LIGHTBOX (EVENT DELEGATION) ===== */
+  track.addEventListener('click', e => {
+    const img = e.target.closest('img');
+    if(!img) return;
+
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox){
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${itemWidth() * index}px)`;
+  });
+
+});
+
 
 </script>
+
 
 </body>
 </html>
