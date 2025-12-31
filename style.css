@@ -30,13 +30,13 @@ a{text-decoration:none;color:inherit}
 .logo{width:150px}
 
 .nav{display:flex;gap:50px}
-.nav a:hover{color:#00ff62}
+.nav a:hover{color:#000000cc} 
 
 .btn-nav{
   background:#0058BC; 
   color:#ffffff;
   padding:10px 20px;
-  border-radius:30px;
+  border-radius: 12px;
   font-weight:600;
 }
 
@@ -118,7 +118,7 @@ a{text-decoration:none;color:inherit}
 .hero-container-bg:hover{
   transform:translateY(-6px);
   box-shadow:
-    0 30px 80px rgba(0, 204, 255, 0.8),
+    0 30px 80px #00ccffcc,
     0 0 30px rgba(0, 47, 255, 0.25);
 }
 
@@ -338,28 +338,47 @@ footer{
   align-items:center;
   gap:10px;
   padding:10px 16px;
-  border-radius:30px;
+  border-radius:12px;
   position:relative;
   transition:all .35s ease;
 }
 
 /* Ícones */
 .market-link img{
-  width:50px;
-  height:50px;
+  width:60px;
+  height:60px;
 }
 
 /* Badge Loja Oficial */
-.badge{
+/*.badge{
   background:#00ff62;
   color:#000;
   font-size:.65rem;
   font-weight:700;
   padding:4px 8px;
-  border-radius:20px;
+  border-radius:12px;
   margin-left:6px;
   text-transform:uppercase;
+}*/
+
+/* BADGE LOJA OFICIAL – BORDA CONTROLADA */
+.badge{
+  background:#00ff37;
+  color:#000;
+  font-size:.65rem;
+  font-weight:700;
+  padding:4px 8px;
+
+  border-radius:6px; /* <<< CONTROLE AQUI */
+  border:1.5px solid #00ff37;
+
+  text-transform:uppercase;
+  letter-spacing:.4px;
+
+  position:relative;
+  overflow:hidden;
 }
+
 
 /* Hover geral */
 .market-link:hover{
@@ -493,4 +512,103 @@ footer{
 /* Brilho mais intenso no hover */
 .logo:hover::after{
   animation-duration:2s;
+}
+
+/* MODAL ORÇAMENTO */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s ease;
+  z-index:3000;
+}
+
+.modal-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-box{
+  background:#111;
+  padding:40px;
+  border-radius:24px;
+  max-width:420px;
+  width:90%;
+  text-align:center;
+  position:relative;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.9),
+    0 0 40px rgba(0,224,255,.15);
+}
+
+.modal-box h2{
+  margin-bottom:30px;
+  font-size:1.4rem;
+}
+
+/* Fechar */
+.modal-close{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* Opções */
+.modal-options{
+  display:grid;
+  gap:20px;
+}
+
+.modal-option{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:16px;
+  border-radius:16px;
+  background:#1a1a1f;
+  font-size:1.1rem;
+  transition:all .3s ease;
+}
+
+.modal-option:hover{
+  transform:translateY(-4px);
+  background:#00e0ff;
+  color:#000;
+}
+/* Ícones do modal */
+.modal-option img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+/* BOTÃO ORÇAMENTO – BORDA CONTROLADA */
+.badge-style{
+  background:#00e0ff;
+  color:#000;
+  font-size:.85rem;
+  font-weight:700;
+  padding:10px 18px;
+  border-radius:12px; /* <<< ALTERE AQUI */
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+/* Hover */
+.badge-style:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 16px rgba(0,224,255,.6);
 }

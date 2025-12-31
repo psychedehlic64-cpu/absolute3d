@@ -37,8 +37,35 @@
     <span class="badge">Loja Oficial</span>
   </a>
 
-  <a href="#contato" class="btn-nav">Orçamento</a>
+  <a href="#" class="btn-nav badge-style" id="open-modal">Pedir Orçamento</a>
 </nav>
+
+<!-- MODAL ORÇAMENTO -->
+<div class="modal-overlay" id="modal-orcamento">
+  <div class="modal-box">
+    <button class="modal-close" id="close-modal">✕</button>
+
+    <h2>Escolha como deseja entrar em contato</h2>
+
+    <div class="modal-options">
+  <a href="mailto:contato@absolute3d.com" class="modal-option">
+    <img src="icon-email.png" alt="E-mail">
+    <span>E-mail</span>
+  </a>
+
+  <a href="https://wa.me/5599999999999" target="_blank" class="modal-option">
+    <img src="icon-whatsapp.png" alt="WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <a href="https://instagram.com/absolute3d" target="_blank" class="modal-option">
+    <img src="icon-instagram.png" alt="Instagram">
+    <span>Instagram</span>
+  </a>
+</div>
+</div>
+</div>
+
 
 <!-- BOTÃO HAMBÚRGUER -->
 <div class="menu-toggle" id="menu-toggle">
@@ -167,6 +194,27 @@ function closeLightbox(){
   toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
   }); 
+
+  
+  const openModal = document.getElementById('open-modal');
+  const modal = document.getElementById('modal-orcamento');
+  const closeModal = document.getElementById('close-modal');
+
+  openModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.classList.remove('active');
+    }
+  });
+
 </script>
 
 </body>
