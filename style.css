@@ -636,3 +636,38 @@ footer{
     0 0 18px rgba(0,224,255,.5);
   transform:translateY(-2px);
 }
+
+/* ANIMAÇÃO HAMBÚRGUER → X */
+.menu-toggle span{
+  transition:transform .4s ease, opacity .4s ease, background .4s ease;
+}
+
+/* Quando menu estiver ativo */
+.menu-toggle.active span:nth-child(1){
+  transform:translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+  transform:translateY(-9px) rotate(-45deg);
+}
+/* ANIMAÇÃO HAMBÚRGUER → X */
+.menu-toggle span{
+  transition:transform .4s ease, opacity .4s ease, background .4s ease;
+}
+
+/* Quando menu estiver ativo */
+.menu-toggle.active span:nth-child(1){
+  transform:translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+  transform:translateY(-9px) rotate(-45deg);
+}

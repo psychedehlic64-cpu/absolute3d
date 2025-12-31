@@ -188,13 +188,14 @@ function closeLightbox(){
   document.getElementById('lightbox').style.display = 'none';
 }
 
-  const toggle = document.getElementById('menu-toggle');
+ const toggle = document.getElementById('menu-toggle');
   const nav = document.querySelector('.nav');
 
   toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-  }); 
-
+    toggle.classList.toggle('active');
+  });
+  
    const modal = document.getElementById('modal-orcamento');
   const closeModal = document.getElementById('close-modal');
 
@@ -221,7 +222,6 @@ function closeLightbox(){
       modal.classList.remove('active');
     }
   });
-
 
 </script>
 
