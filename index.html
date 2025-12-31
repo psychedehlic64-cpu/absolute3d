@@ -86,8 +86,8 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#contato" class="btn-hero">Solicitar Orçamento</a>
-      <a href="#servicos" class="btn-hero-outline">Ver Serviços</a>
+      <a href="#" class="btn-hero" id="open-modal-hero">Pedir Orçamento</a>
+
     </div>
   </div>
 </section>
@@ -195,14 +195,21 @@ function closeLightbox(){
     nav.classList.toggle('active');
   }); 
 
-  
-  const openModal = document.getElementById('open-modal');
-  const modal = document.getElementById('modal-orcamento');
+   const modal = document.getElementById('modal-orcamento');
   const closeModal = document.getElementById('close-modal');
 
-  openModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.classList.add('active');
+  const openButtons = [
+    document.getElementById('open-modal'),       // botão do header
+    document.getElementById('open-modal-hero')   // botão do hero
+  ];
+
+  openButtons.forEach(btn => {
+    if(btn){
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('active');
+      });
+    }
   });
 
   closeModal.addEventListener('click', () => {
@@ -214,6 +221,7 @@ function closeLightbox(){
       modal.classList.remove('active');
     }
   });
+
 
 </script>
 

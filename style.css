@@ -612,3 +612,27 @@ footer{
   transform:translateY(-2px);
   box-shadow:0 0 16px rgba(0,224,255,.6);
 }
+
+/* BOTÃO HERO – FUNDO PRETO TRANSPARENTE */
+.btn-hero{
+  background:rgba(0,0,0,.55);   /* preto transparente */
+  color:#fff;
+
+  padding:15px 35px;
+  border-radius:10px;
+
+  font-weight:600;
+  backdrop-filter:blur(6px);   /* efeito vidro */
+  border:1px solid rgba(255,255,255,.15);
+
+  transition:all .35s ease;
+}
+
+/* Hover */
+.btn-hero:hover{
+  background:rgba(0,0,0,.75);
+  border-color:#00e0ff;
+  box-shadow:
+    0 0 18px rgba(0,224,255,.5);
+  transform:translateY(-2px);
+}
